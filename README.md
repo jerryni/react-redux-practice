@@ -1,0 +1,28 @@
+## react todomvc practice
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+You can more information from `./README-old.md`
+
+## plan
+
+- todomvc without style
+- integrate redux to react
+
+## progress
+
+- [x] add/remove
+- [ ] check/uncheck, checkall
+- [ ] all/active/complete
+- [ ] clear complete
+- [ ] operate status
+
+## reference
+
+- react-todomvc: [online-demo](http://todomvc.com/examples/react/#/), [source](https://github.com/tastejs/todomvc/tree/master/examples/react)
+
+- redux-react-todomvc: [source](https://github.com/reactjs/redux/tree/master/examples/todomvc)
+
+## Start
+
+> npm run start
