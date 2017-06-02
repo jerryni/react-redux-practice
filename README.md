@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-You can more information from `./README-old.md`
+You can find more information from [README-old.md](https://github.com/jerryni/react-redux-practice/blob/master/README-old.md)
 
 ## plan
 
