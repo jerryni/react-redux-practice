@@ -17,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "/build"
+  "homepage": "https://jerryni.github.io/react-redux-practice/build"
 }
