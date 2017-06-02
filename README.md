@@ -11,6 +11,8 @@ You can find more information from [README-old.md](https://github.com/jerryni/re
 
 ## progress
 
+[online-demo](https://jerryni.github.io/react-redux-practice/build/)
+
 - [x] add/remove
 - [ ] check/uncheck, checkall
 - [ ] all/active/complete
