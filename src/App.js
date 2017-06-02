@@ -18,7 +18,8 @@ class App extends Component {
 
       this.props.todos.push({
         name: value,
-        id: new Date().getTime()
+        id: new Date().getTime(),
+        completed: false
       })
 
       this.setState({
@@ -41,19 +42,41 @@ class App extends Component {
     this.setState(this.state)
   }
 
+  onToggle = todo => {
+    todo.completed = !todo.completed
+    this.setState(this.state)
+  }
+
+  onToggleAll = e => {
+    let {checked} = e.target;
+    this.props.todos.forEach(todo => {
+      todo.completed = checked
+    })
+    this.setState(this.state)
+  }
+
   render() {
-    let _todos = this.props.todos;
+    let {todos} = this.props;
 
     return (
       <div id="app">
         <h1>todos</h1>
+        <input type="checkbox" onChange={this.onToggleAll}/>
         <input type="text"
         onKeyUp={this.handleKeyup}
         onChange={this.handleChange}
         value={this.state.text}/>
         <ul>
-          {_todos.map( (todo, index) => 
-            <li key={todo.id}>{todo.name} <span className="close" onClick={() => {this.handleRemoveTodo(index)}}>X</span></li>
+          {todos.map( (todo, index) => 
+            <li key={todo.id}>
+              <label>
+              <input type="checkbox" checked={todo.completed}
+                onChange={()=> {this.onToggle(todo)}}/>
+              {todo.name}
+              </label>
+
+              <a href="javascript:;" className="close" onClick={() => {this.handleRemoveTodo(index)}}>X</a>
+            </li>
           )}
         </ul>
       </div>
