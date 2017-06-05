@@ -11,13 +11,14 @@ You can find more information from [README-old.md](https://github.com/jerryni/re
 
 ## progress
 
-[online-demo](https://jerryni.github.io/react-redux-practice/build/)
+[online-demo](https://jerryni.github.io/react-redux-practice/build/index.html)
 
 - [x] add/remove
 - [x] check/uncheck, checkall
+- [ ] add localstorage
 - [ ] all/active/complete
 - [ ] clear complete
-- [ ] operate status
+- [ ] how many todo left
 
 ## reference
 
