@@ -18,7 +18,8 @@ You can find more information from [README-old.md](https://github.com/jerryni/re
 - [ ] add localstorage
 - [ ] all/active/complete
 - [ ] clear complete
-- [ ] how many todo left
+- [ ] how many todos left
+- [ ] integrate redux
 
 ## reference
 
