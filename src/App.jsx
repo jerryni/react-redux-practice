@@ -1,18 +1,13 @@
 import React from 'react'
 import './App.css'
-import FilterableProductTable from './modules/productList/index.jsx'
-import ToDoList from './modules/todoList/index.jsx'
+import FilterableProductTable from './modules/FilterableProductTable.jsx'
+import ToDoList from './modules/ToDoList.jsx'
 
 class App extends React.Component {
-
-  constructor(props){
-    super(props)
-    this.state = {
-      showTable: true
-    }
-    this.todos = []
+  state = {
+    showTable: true
   }
-
+  todos = []
   render() {
     return (
       <div id="app">

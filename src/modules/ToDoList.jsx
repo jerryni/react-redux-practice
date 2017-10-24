@@ -71,7 +71,7 @@ class ToDoList extends React.Component {
                   {todo.name}
                   </label>
 
-                  <a href="javascript:" className="close" onClick={() => {this.handleRemoveTodo(index)}}>X</a>
+                  <span className="close" onClick={() => {this.handleRemoveTodo(index)}}>X</span>
                 </li>
               )}
             </ul>
