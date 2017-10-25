@@ -9,12 +9,20 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 class FilterableProductTable extends React.Component {
   render() {
+    const filterText = this.props.filterText
+    const inStockOnly = this.props.inStockOnly
+
     return (
       <div>
-        <input placeholder="Search..."/>
+        <input 
+          type="text" 
+          placeholder="Search..."
+          value={filterText}/>
         <p>
           <label> 
-            <input type="checkbox"/>
+            <input 
+              type="checkbox" 
+              checked={inStockOnly}/>
             <span>Only show products in stock</span>
           </label>
         </p>
