@@ -9,6 +9,10 @@ class ToDoList extends React.Component {
       }
     }
 
+    static defaultProps = {
+      todos: []
+    }
+
     handleKeyup = e => {
       if(e.key === 'Enter'){
         let value = e.target.value.trim()
