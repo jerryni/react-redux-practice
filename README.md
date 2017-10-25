@@ -12,7 +12,7 @@ You can find more information from [README-old.md](https://github.com/jerryni/re
 
 - [x] add todomvc
 - [x] FilterableProductTable 
-- [] Integrate redux
+- [ ] Integrate redux
 
 ## reference
 

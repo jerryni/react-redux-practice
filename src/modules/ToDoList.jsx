@@ -60,7 +60,6 @@ class ToDoList extends React.Component {
         let {todos} = this.props
         return (
           <div>
-            <h1>todos</h1>
             <input type="checkbox" onChange={this.onToggleAll}/>
             <input type="text"
             onKeyUp={this.handleKeyup}
