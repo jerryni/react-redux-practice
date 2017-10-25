@@ -8,6 +8,14 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 class FilterableProductTable extends React.Component {
+  handleFilterTextChange(e) {
+    this.props.onFilterTextChange(e.target.value)
+  }
+
+  handleInStockChange(e) {
+    this.props.onInStockChange(e.target.checked) 
+  }
+
   render() {
     const filterText = this.props.filterText
     const inStockOnly = this.props.inStockOnly
@@ -17,12 +25,14 @@ class FilterableProductTable extends React.Component {
         <input 
           type="text" 
           placeholder="Search..."
-          value={filterText}/>
+          value={filterText}
+          onChange={this.handleFilterTextChange.bind(this)}/>
         <p>
           <label> 
             <input 
               type="checkbox" 
-              checked={inStockOnly}/>
+              checked={inStockOnly}
+              onChange={this.handleInStockChange.bind(this)}/>
             <span>Only show products in stock</span>
           </label>
         </p>
