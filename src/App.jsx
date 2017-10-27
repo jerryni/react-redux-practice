@@ -20,7 +20,7 @@ class App extends React.Component {
   }
   render() {
     let lis = [],
-        CurrentComponent
+      CurrentComponent
 
     CurrentComponent = this.components[this.state.currentComponent]
 

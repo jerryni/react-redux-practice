@@ -32,5 +32,6 @@
             "never"
         ],
         "react/jsx-uses-vars": 2
-    }
+    },
+    "parser": "babel-eslint"
 }
