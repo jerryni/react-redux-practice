@@ -5,8 +5,10 @@
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -24,8 +26,11 @@
   },
   "lint-staged": {
     "gitDir": "./",
-    "linters":{
-      "src/**/*.jsx": ["eslint --fix", "git add"]
+    "linters": {
+      "src/**/*.jsx": [
+        "eslint --fix",
+        "git add"
+      ]
     }
   },
   "homepage": "https://jerryni.github.io/react-redux-practice/build"

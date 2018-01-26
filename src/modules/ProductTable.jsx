@@ -10,58 +10,37 @@ import ProductCategoryRow from './subModules/ProductCategoryRow.jsx'
 import ProductRow from './subModules/ProductRow.jsx'
 import PropTypes from 'prop-types'
 class ProductTable extends React.Component {
-  static propTypes = {
-    products: PropTypes.array
-  }
+    static propTypes = {
+        products: PropTypes.array
+    }
 
-  static defaultProps = {
-    products: []
-  }
+    static defaultProps = {
+        products: []
+    }
 
-  render() {
-    let rows = []
-    let lastCategory = null;
-    const filterText = this.props.filterText;
-    const inStockOnly = this.props.inStockOnly;
+    render() {
+        let { products } = this.props
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map(product => {
+                            return <ProductRow
+                                product={product}
+                                key={product.name} />
+                        })
+                    }
+                </tbody>
 
-    this.props.products.forEach((product) => {
-      if(product.name.indexOf(filterText) === -1) {
-        return;
-      }
-      
-      if (inStockOnly && !product.stocked) {
-        return;
-      }
-
-      if (product.category !== lastCategory) {
-        rows.push(
-          <ProductCategoryRow
-            category={product.category}
-            key={product.category} />
-        );
-      }
-      rows.push(
-        <ProductRow
-          product={product}
-          key={product.name} />
-      );
-      lastCategory = product.category;
-    })
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows}
-        </tbody>
-
-      </table>
-    )
-  }
+            </table>
+        )
+    }
 }
 
 export default ProductTable
