@@ -8,16 +8,16 @@ export const getProducts = () => {
     }
 }
 
-export const changeText = text => dispatch => {
-    dispatch({
+export const changeText = (e) => {
+    return {
         type: types.TEXT_CHANGE,
-        text
-    })
+        text: e.target.value
+    }
 }
 
-export const changeInStock = isInStock => dispatch => {
-    dispatch({
+export const changeInStock = (e) => {
+    return {
         type: types.INSTOCK_CHNAGE,
-        isInStock
-    })
+        isInStock: e.target.checked
+    }
 }

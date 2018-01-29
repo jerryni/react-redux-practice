@@ -7,19 +7,6 @@ import {
     RECEIVE_PRODUCTS
 } from '../constants/ActionTypes'
 
-const filteredProducts = (state = [], action) => {
-    switch (action.type) {
-        case TEXT_CHANGE:
-        case INSTOCK_CHNAGE:
-            // 这边执行过滤逻辑
-            return state.products.filter((product) => {
-                return product.stocked && product.name.indexOf(filterText) > -1;
-            })
-        default:
-            return state
-    }
-}
-
 const filterText = (state = '', action) => {
     switch (action.type) {
         case TEXT_CHANGE:
@@ -47,8 +34,22 @@ const isInStock = (state = '', action) => {
     }
 }
 
+export const getFilteredProducts = (state) => {
+    return state.products.filter((product) => {
+        if(state.isInStock && !product.stocked) {
+            return false
+        }
+
+        if(state.filterText &&
+            (product.name.indexOf(state.filterText) === -1)) {
+            return false
+        }
+
+        return true
+    })
+}
+
 export default combineReducers({
-    filteredProducts,
     filterText,
     isInStock,
     products

@@ -6,39 +6,55 @@
         - ProductRow：商品行
 **/
 import React from 'react'
+import {connect} from 'react-redux'
+import * as actions from '../actions/index'
 // import PropTypes from 'prop-types'
 class FilterableProductTable extends React.Component {
-  handleFilterTextChange(e) {
-    this.props.onFilterTextChange(e.target.value)
-  }
+    handleFilterTextChange(e) {
+        this.props.onFilterTextChange(e.target.value)
+    }
 
-  handleInStockChange(e) {
-    this.props.onInStockChange(e.target.checked) 
-  }
+    handleInStockChange(e) {
+        this.props.onInStockChange(e.target.checked)
+    }
 
-  render() {
-    const filterText = this.props.filterText
-    const inStockOnly = this.props.inStockOnly
+    render() {
+        const {filterText, inStockOnly,
+            changeText,
+            changeInStock
+        } = this.props
 
-    return (
-      <div>
-        <input 
-          type="text" 
-          placeholder="Search..."
-          value={filterText}
-          onChange={this.handleFilterTextChange.bind(this)}/>
-        <p>
-          <label> 
-            <input 
-              type="checkbox" 
-              checked={inStockOnly}
-              onChange={this.handleInStockChange.bind(this)}/>
-            <span>Only show products in stock</span>
-          </label>
-        </p>
-      </div>
-    )
-  }
+        return (
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={filterText}
+                    onChange={changeText} />
+                <p>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={inStockOnly}
+                            onChange={changeInStock} />
+                        <span>Only show products in stock</span>
+                    </label>
+                </p>
+            </div>
+        )
+    }
 }
 
-export default FilterableProductTable
+const mapStateToProps = store => ({
+    filterText: store.products.filterText,
+    inStock: store.products.isInStock
+})
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeText: (...args) => dispatch(actions.changeText(...args)),
+        changeInStock: (...args) => dispatch(actions.changeInStock(...args)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterableProductTable)

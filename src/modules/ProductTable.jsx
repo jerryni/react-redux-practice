@@ -6,18 +6,12 @@
         - ProductRow：商品行
 **/
 import React from 'react'
-import ProductCategoryRow from './subModules/ProductCategoryRow.jsx'
+import {connect} from 'react-redux'
+// import ProductCategoryRow from './subModules/ProductCategoryRow.jsx'
 import ProductRow from './subModules/ProductRow.jsx'
-import PropTypes from 'prop-types'
+import {getFilteredProducts} from '../reducers/products'
+// import PropTypes from 'prop-types'
 class ProductTable extends React.Component {
-    static propTypes = {
-        products: PropTypes.array
-    }
-
-    static defaultProps = {
-        products: []
-    }
-
     render() {
         let { products } = this.props
         return (
@@ -43,4 +37,8 @@ class ProductTable extends React.Component {
     }
 }
 
-export default ProductTable
+const mapStateToProps = store => ({
+    products: getFilteredProducts(store.products)
+})
+
+export default connect(mapStateToProps)(ProductTable)
